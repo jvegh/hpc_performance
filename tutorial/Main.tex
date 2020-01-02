@@ -1,0 +1,127 @@
+%% This is the real main file for Tutorial of the ISC in FGrankfurt, 2020
+
+\usepackage{pgfplots}
+\usepackage{adjustbox}
+\usepackage[toc,acronym]{glossaries}
+\usepackage[customcolors,shade]{hf-tikz}
+\definecolor{webgreen}{rgb}{0,.5,0}
+\definecolor{webbrown}{rgb}{.6,0,0}
+\definecolor{webyellow}{rgb}{0.98,0.92,0.73}
+\definecolor{webgray}{rgb}{.753,.753,.753}
+\definecolor{webblue}{rgb}{0,0,.8}
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+
+
+%\renewcommand{\dbltopfraction}{0.9}	% fit big float above 2-col. text
+\renewcommand{\textfraction}{0.05}	% allow minimal text w. figs
+%   Parameters for FLOAT pages (not text pages):
+\renewcommand{\floatpagefraction}{0.75}	% require fuller float pages
+% N.B.: floatpagefraction MUST be less than topfraction !!
+%\renewcommand{\dblfloatpagefraction}{0.7}	% require fuller float pages
+
+
+\makeglossaries
+
+\newacronym{AI}{AI}{Artificial Intelligence}
+\newacronym{ISA}{ISA}{Instruction Set Architecture}
+\newacronym{I/O}{I/O}{Input/Output}
+\newacronym{MC}{MC}{Multi-Core and/or Many-Core}
+\newacronym{MLP}{MLP}{Memory Level Parallelism}
+\newacronym{OoO}{OoO}{Out-of-Order}
+\newacronym{OS}{OS}{operating system}
+\newacronym{PD}{PD}{Propagation Delay}
+\newacronym{PU}{PU}{Processing Unit}
+\newacronym{SPA}{SPA}{Single Processor Approach}
+\newacronym{HPL}{HPL}{High Performance Linpack}
+\newacronym{HPCG}{HPCG}{High Performance Conjugate Gradients}
+
+\newcommand*{\boxcolor}{orange}
+\makeatletter
+\renewcommand{\boxed}[1]{\textcolor{\boxcolor}{%
+		\tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor\m@th$\displaystyle#1$};}}
+\makeatother
+\begin{document}
+	\MEfrontmatter
+	\MEmainmatter
+%%% Tutorial A, beginner's level
+%\input{src/OverviewA.tex}
+
+%\subsection{Detailed outline of the tutorial '\textit{Making the basic terms and ideas of HPC clear}' (with time slots)}
+%\input{src/LessonA1.tex}
+%\input{src/LessonA2.tex}
+%\input{src/LessonA3.tex}
+%\input{src/LessonA4.tex}
+%
+%%%% Tutorial B, advanced level	    
+%
+%%\subsection{Detailed outline of the tutorial '\textit{Using HPC for 	supercomputing}' (with time slots)}
+\input{src/OverviewB.tex}
+%\input{src/LessonB1.tex}
+%\input{src/LessonB2.tex}
+\input{src/LessonB3.tex}
+%\input{src/LessonB4.tex}
+
+%\input{src/WrapUp.tex}
+ \bibliographystyle{IEEEtran}
+\bibliography{../../CommonBibliography,%
+	../../CommonPrivateBibliography%
+}
+	\MEbackmatter
+\end{document}
+
+%egregious = extremely bad in a way that is very noticeable
+%	\input{src/Overview}
+%	\part{Basic tutorial}
+%  	\MEchapter[Single Processor Approach]{SPA: Around single-processor performance}
+%    	\MEsection[Single-Processor Performance]{The Single-Processor Approach}
+%    	\MEsection[Limitations of SPA]{Limitations of single-processor performance (Moore's Law)}
+%    	\MEsection [Measure performance]{How to measure single-processor performance}
+% 		\MEsection[Sequential and parallel] {What is sequential, parallel and parallelized sequential}
+%		\MEsection[What is parallel]{What is parallel and concurrent and parallelized sequential performance special in}
+%		
+% 	\MEchapter[Limitations of parallelization]{Limitations of parallelized sequential performance (Amdahl's Law)}
+%		\MEsection[Limitations]{Limitations of parallelized performance: Amdahl's Law}
+%      	\MEsection[Amdahl's Law]{Amdahl's definition and model}	
+%%		\input{src/Model}
+%		\MEsection[The effective parallelization]{The role of the effective parallelization }
+%		\MEsection[The "dark performance"]{The "dark performance" or the "supercomputer efficiency"}
+%   		\MEsection[Amdahl's abusing]{Abusing and misinterpreteting Amdahl's Law}	
+%
+%		
+%  	\MEchapter[Parallel performance]{The performance of parallelization}
+%		\MEsection[What is wrong with SPA]{What is wrong with parallelization in SPA}
+%		\MEsection[Many-core parallelization]{Many-core parallelization}
+%		\MEsection[What kinds of performances exist]{What kinds of performances exist}
+%		\MEsection[SW parallelization]{SW parallelization}
+%		\MEsection[Parallelization in the cloud]{Parallelization in the cloud}
+%	
+%  	\MEchapter[Modern computing I]{Analogy with the sciences: counter-intuitive, shocking but true}
+%	  	\MEsection[Relativity and computing]{Relativity and computing performance}
+%	  	\MEsection[The measurement paradox]{The measurement paradox}
+%
+%	\part{Performance of HPC}
+%  	\MEchapter[High performance] {How to achieve high performance}
+%  		\MEsection[Optimization]{Single-thread vs many-processor optimization}
+% 		\MEsection[Supercomputing performance]{The performance of supercomputing}
+%		\MEsection[The contributions]{The contribution to effective parallelization}
+%		\MEsection[The limiting factors]{The limiting factors}
+%		
+%  	\MEchapter[Benchmark performance]{What actually the benchmark programs measure}
+%		\MEsection[Performance of supercomputing]{The performance limitations of supercomputing}
+%		\MEsection[Benchmarking]{What actually the benchmark programs measure}
+%		\MEsection[Half precision]{Reducing Operand length}
+%		\MEsection[Workflow]{The role of workflow mode}
+%		\MEsection[Why some supercomputers failed]{Why some supercomputers failed (and why more will fail)}
+%		
+%  	\MEchapter[Modern computing II]{Analogy with the sciences: counter-intuitive, shocking but true}
+%		\MEsection[Collapse]{Gravitational and communicational collapse}
+%		\MEsection[The quantal nature]{The quantal nature of (computing) time}
+%		\MEsection[Interaction and communication]{Collective behavior}
+%
+%	\MEchapter[The exa-scale race]{What required to enter the exa-scale race}
+%		
+%		\MEsection[The "dark performance"]{How to increase the "dark performance"}
+%  		\MEsection[The Explicitly Many-Processor Approach]{EMPA: a posible way out}
+%	
+%\section{Detailed description of the tutorial content (3 pages maximum)}
